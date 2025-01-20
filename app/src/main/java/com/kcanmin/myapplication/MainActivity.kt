@@ -3,6 +3,7 @@ package com.kcanmin.myapplication
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -24,6 +25,15 @@ class MainActivity : ComponentActivity() {
         val input:EditText = findViewById(R.id.editTextText)
         val button:Button = findViewById(R.id.button)
 
+        button.setOnClickListener{
+            val textValue = input.text.toString();
+            if(textValue.isBlank()){
+                Toast.makeText(this, "값을 입력하십시요.", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                Toast.makeText(this, "안녕하세요, $textValue", Toast.LENGTH_SHORT).show()
+            }
+        }
 
 
 //        enableEdgeToEdge()
